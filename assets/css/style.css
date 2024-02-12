@@ -1096,3 +1096,25 @@ section .container {
     transform: translateX(-50%);
   }
 }
+.publication-box {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.publication-image {
+  width: 200px; /* Adjust width as needed */
+  margin-right: 20px;
+}
+
+.publication-image img {
+  width: 100%;
+  height: auto;
+}
+
+.publication-content {
+  flex: 1;
+}
