@@ -42,6 +42,10 @@
   --box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+
+
+
+
 /* CSS Reset
 --------------------------------------------------------------*/
 *,
@@ -1159,4 +1163,349 @@ html {
   background-color: #333;
   padding: 0.5rem 1rem;
   border-radius: 5px;
+}
+/* Updated Publications Section */
+.section.publications {
+  padding: 5rem 0;
+  background-color: var(--color-bg-primary);
+  color: var(--color-white);
+}
+
+.section__header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section__title {
+  font-size: var(--fs-xl);
+  margin-bottom: 0.5rem;
+  color: var(--color-white);
+}
+
+.more-publications {
+  font-size: var(--fs-md);
+  color: var(--color-text);
+  margin-bottom: 2rem;
+}
+
+.more-publications a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+.more-publications a:hover {
+  color: var(--color-primary-dark);
+}
+
+.publications__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.publication {
+  background-color: var(--color-bg-secondary);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.publication:hover {
+  background-color: var(--color-primary);
+  transform: translateY(-5px);
+}
+
+.publication__title {
+  font-size: var(--fs-lg);
+  margin-bottom: 0.5rem;
+  color: var(--color-white);
+  font-weight: var(--fw-bold);
+}
+
+.publication__conference,
+.publication__authors {
+  font-size: var(--fs-md);
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.publication__link {
+  color: var(--color-primary);
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+.publication__link:hover {
+  color: var(--color-white);
+}
+
+.highlight {
+  color: var(--color-primary-dark);
+  font-weight: var(--fw-bold);
+}
+
+/* Qualification Section */
+.qualification__wrapper {
+  margin-bottom: 5rem;
+}
+
+.qualification__name {
+  display: flex;
+  align-items: center;
+  font-size: var(--fs-lg);
+  margin-bottom: 2rem;
+  color: var(--color-primary);
+}
+
+.qualification__name i {
+  margin-right: 1rem;
+  color: var(--color-primary);
+}
+
+.d-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.qualification__item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background-color: var(--color-bg-secondary);
+  border-radius: 8px;
+  text-decoration: none; /* Make the entire item a link */
+  color: var(--color-text);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: var(--box-shadow);
+}
+
+.qualification__item:hover {
+  background-color: var(--color-primary);
+  transform: translateY(-5px);
+}
+
+.qualification__logo {
+  flex-shrink: 0;
+}
+
+.qualification__logo img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.qualification__details {
+  flex-grow: 1;
+}
+
+.qualification__title {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+  color: var(--color-white);
+  margin-bottom: 0.5rem;
+}
+
+.qualification__description {
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.qualification__date {
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+}
+/* Work Experience Section */
+.work-experience__wrapper {
+  position: relative;
+  margin-top: 2rem;
+  padding-left: 2rem;
+}
+
+.timeline {
+  position: relative;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline__event {
+  position: relative;
+  margin-bottom: 4rem;
+}
+
+.timeline__event::before {
+  content: '';
+  position: absolute;
+  left: -1rem;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--color-primary);
+}
+
+.timeline__content {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: var(--color-bg-secondary);
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.timeline__content:hover {
+  background-color: var(--color-primary);
+  transform: translateY(-5px);
+}
+
+.timeline__logo {
+  flex-shrink: 0;
+  margin-right: 1.5rem;
+}
+
+.timeline__logo img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.timeline__details {
+  flex-grow: 1;
+}
+
+.timeline__title {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  color: var(--color-white);
+  margin-bottom: 0.5rem;
+}
+
+.timeline__company,
+.timeline__date,
+.timeline__description,
+.timeline__skills,
+.timeline__tools {
+  font-size: var(--fs-md);
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.timeline__skills {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.timeline__skills li {
+  background-color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.timeline__tools strong {
+  color: var(--color-white);
+}
+/* Projects Section */
+.project {
+  padding: 2rem 0;
+}
+
+.section__header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section__title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.more-publications {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.project__wrapper {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.project__content {
+  display: flex;
+  flex-direction: column;
+  background: #dfece5;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.project__content:hover {
+  transform: translateY(-5px);
+}
+
+.project__img-wrapper {
+  width: 200%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.project__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.project__content:hover .project__img {
+  transform: scale(1.1);
+}
+
+.project__info {
+  padding: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project__title {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.project__description {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #666;
+  flex-grow: 1;
+}
+
+.project__link {
+  color: #007BFF;
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.project__link i {
+  margin-left: 0.5rem;
+  transition: transform 0.3s;
+}
+
+.project__link:hover i {
+  transform: translateX(5px);
 }
