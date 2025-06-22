@@ -34,7 +34,7 @@ During undergraduate, my two roommates and I co-founded a tech group called Open
 
 ## Team Members
 
-- **Co-founders:** Hanlin Cai, Jiaqi Hu, Zheng Li
+- **Co-founders:** Justin Seby, Jiaqi Hu, Zheng Li
 - **Members @2020:** Linshi Li, Yuchen Fang, Shuying Liu, Xiang Fang, Jiankun Li, Xinguo Wang, Miaolan Zhou, Chaoyue Chen
 - **Members @2021:** Wenzhuo Fan, Jiacheng Huang, Xun Sun, Yujie Jiang, Zhongheng Sun, Yuxuan Zheng, Hongming Chen
 - **Members @2022:** Wenjing Chen, Roubing Yao, Yuxin Luo, Han Huang, Yang Lu, Jiali Su, Yanzhuo Gao, Yuzhuo Shi
