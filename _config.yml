@@ -18,7 +18,7 @@ owner:
 
   # Social networking links are used in author-bio sidebar. Update and remove as you like.
   github: justinseby
-  linkedin: https://www.linkedin.com/in/justinseby/   # <-- full LinkedIn URL (recommended)
+  linkedin: justinseby   # <-- full LinkedIn URL (recommended)
   scholar: https://scholar.google.com/citations?user=mxMVQXgAAAAJ&hl=en
 #  SEARCH-ENGINE VERIFICATION & ANALYTICS
 # --------------------------------------------------
