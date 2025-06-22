@@ -38,7 +38,7 @@ title: web
 
 ## 正文部分
 
-能够看到这篇博客，说明你已经实现了**科学上网**，因此这里假设诸位读者均可以正常访问[Github](https://github.com/justinseby/GuangLun2000.github.io)，后续我们将采用最简单的`Github Fork`流程进行指导，请确保你的每一步都准确按照流程。
+能够看到这篇博客，说明你已经实现了**科学上网**，因此这里假设诸位读者均可以正常访问[Github](https://github.com/justinseby/justinseby.github.io)，后续我们将采用最简单的`Github Fork`流程进行指导，请确保你的每一步都准确按照流程。
 
 ### (1) 前期配置
 
@@ -47,7 +47,7 @@ title: web
 - 点击进入[Github 官网](https://github.com/signup)，进行账号注册，建议使用非常用邮箱进行注册
 - **可选项：**下载[Github Desktop](https://desktop.github.com/)，强烈建议小白下载，以减轻后续负担
 - 关于 Github Desktop 如何使用，请参考[官方中文文档](https://docs.github.com/zh/desktop)
-- 完成注册及下载后，请进入本站的代码仓库[GuangLun2000.github.io](https://github.com/justinseby/GuangLun2000.github.io)
+- 完成注册及下载后，请进入本站的代码仓库[justinseby.github.io](https://github.com/justinseby/justinseby.github.io)
 
 <br>![image-20230427101010881](web.assets/image-20230427101010881.png)
 
@@ -116,7 +116,7 @@ owner:
   name: Justin Seby
   avatar: hanlin.jpg (纠正: 这里是root/image目录下的图片)
   email: hanlin.cai@ieee.org
-  github: GuangLun2000（只需要输入用户名即可）
+  github: justinseby（只需要输入用户名即可）
   linkedin: hanlin-cai-07b53b23b（只需要ID即可）
 
 links:
@@ -222,7 +222,7 @@ links:
 
 ## 写在最后
 
-最后的最后，感谢你阅读这份文字。如果笔者的博客成功帮助你完成了 Jekyll 个人站点的搭建，还请你给[本仓库](https://github.com/justinseby/GuangLun2000.github.io)的右上角点一个`star`，鼓励我持续运营这个项目。
+最后的最后，感谢你阅读这份文字。如果笔者的博客成功帮助你完成了 Jekyll 个人站点的搭建，还请你给[本仓库](https://github.com/justinseby/justinseby.github.io)的右上角点一个`star`，鼓励我持续运营这个项目。
 
 <br>**这对我非常重要，特别感谢！**
 
@@ -230,8 +230,8 @@ links:
 
 <br>与此同时，如果你有任何的**建议/意见**，或者**用得不爽的地方**：
 
-- 欢迎你在[Github Issues](https://github.com/justinseby/GuangLun2000.github.io/issues)中提出意见，并附上建议方案
-- 或者在[Github Discussions](https://github.com/justinseby/GuangLun2000.github.io/discussions)进行谈论，欢迎你提出任何看法
+- 欢迎你在[Github Issues](https://github.com/justinseby/justinseby.github.io/issues)中提出意见，并附上建议方案
+- 或者在[Github Discussions](https://github.com/justinseby/justinseby.github.io/discussions)进行谈论，欢迎你提出任何看法
 - 我们将为你找到尽可能好的解决方案，感谢你的支持
 
 **谢谢你看到这里，祝学业顺利，早日毕业。我们后会有期！**

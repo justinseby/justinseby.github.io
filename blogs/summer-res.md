@@ -20,7 +20,7 @@ title: summer-res
 
 ## Star History
 
-<br>[![Star History Chart](https://api.star-history.com/svg?repos=GuangLun2000/summer-research-app&type=Date)](https://star-history.com/#GuangLun2000/summer-research-app&Date)
+<br>[![Star History Chart](https://api.star-history.com/svg?repos=justinseby/summer-research-app&type=Date)](https://star-history.com/#justinseby/summer-research-app&Date)
 
 <br>
 
