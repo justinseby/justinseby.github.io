@@ -160,7 +160,7 @@ title: summer-res
 
 <br>如果这份材料给你提供了帮助，请不要吝惜，请给这个 Github 项目一个 Star 吧！😊
 
-<br>项目地址：[summer-research-app](https://github.com/GuangLun2000/summer-research-app)
+<br>项目地址：[summer-research-app](https://github.com/justinseby/summer-research-app)
 
 <br>Written by [Justin Seby](https://caihanlin.com/), final update in Jan 2024.
 

@@ -14,25 +14,15 @@ url: https://justinseby.github.io
 # --------------------------------------------------
 owner:
   name: Justin Seby
-  avatar: hanlin.jpg
+  avatar: Justin_portfolio Image.jpg
   # bio: Dream big, stay positive, work hard, and enjoy the journey.
-  email: hc663@cam.ac.uk
+  email: justinseby891@ki.se
   cv: https://caihanlin.com/file/CV-HanlinCAI.pdf
 
   # Social networking links are used in author-bio sidebar. Update and remove as you like.
-  twitter: lancecai2002
-  github: GuangLun2000
+  github: justinseby
   linkedin: hanlincai
   scholar: https://scholar.google.com/citations?user=8igSoWgAAAAJ
-  researchgate: https://www.researchgate.net/profile/Hanlin-Cai
-  zhihu: https://www.zhihu.com/people/chlire
-  xiaohongshu: 5c27848f0000000005030c6f
-  bilibili: 594030035
-  # facebook: caihanlin2002
-  # instagram: lancecai2002
-  # lastfm:
-  # tumblr:
-
 # --------------------------------------------------
 #  SEARCH-ENGINE VERIFICATION & ANALYTICS
 # --------------------------------------------------
@@ -49,8 +39,6 @@ links:
     url: /
   - title: Publications
     url: /publications/
-  - title: Awards
-    url: /awards/
   - title: Education
     url: /education/
   - title: Work Experience
@@ -63,7 +51,7 @@ links:
 # --------------------------------------------------
 #  BUILD & RENDERING OPTIONS
 # --------------------------------------------------
-timezone: Asia/Shanghai # IANA time-zone ID (China/Beijing is invalid)
+timezone: Europe/Stockholm # IANA time-zone ID (China/Beijing is invalid)
 future: true # Render posts dated in the future
 highlighter: rouge # Code highlighter; Rouge is default in MM
 # markdown: kramdown             # Jekyll default; uncomment to force
@@ -126,3 +114,5 @@ plugins:
   - jekyll-seo-tag # Adds SEO meta tags & JSON-LD
 #   - jekyll-picture-tag   # Responsive images & WebP/AVIF
 # - jekyll-archives      # Year/month archive pages
+exclude:
+  - "backup/"
