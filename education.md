@@ -6,7 +6,7 @@ permalink: /education/
 
 ## Education
 
-### <span style="color:#28a745;">🎓 Doctor of Philosophy (PhD) — Karolinska Institutet</span>
+### <span style="color:#007acc;">🎓 Doctor of Philosophy (PhD) — Karolinska Institutet</span>
 
 **Sep 2024 – Present**  
 **Field**: Cancer Precision Medicine using Advanced Machine Learning and AI on Large-Scale Data  
@@ -14,7 +14,7 @@ permalink: /education/
 
 ---
 
-### <span style="color:#28a745;">🎓 Master of Science (MS) — University of Oulu</span>
+### <span style="color:#007acc;">🎓 Master of Science (MS) — University of Oulu</span>
 
 **Aug 2022 – Sep 2023**  
 **Program**: Computer Science and Engineering with AI Specialization  
@@ -25,7 +25,7 @@ permalink: /education/
 
 ---
 
-### <span style="color:#28a745;">🎓 Bachelor of Technology (BTech) — APJ Abdul Kalam Technological University</span>
+### <span style="color:#007acc;">🎓 Bachelor of Technology (BTech) — APJ Abdul Kalam Technological University</span>
 
 **Aug 2015 – Apr 2019**  
 **Major**: Computer Science and Engineering  
@@ -39,7 +39,7 @@ permalink: /education/
 
 ---
 
-### <span style="color:#28a745;">🏫 Higher Secondary — M.A.M.H.S.S Koratty</span>
+### <span style="color:#007acc;">🏫 Higher Secondary — M.A.M.H.S.S Koratty</span>
 
 **2013 – 2015**  
 **Major**: Computer Science  

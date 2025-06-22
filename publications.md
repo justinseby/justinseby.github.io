@@ -16,7 +16,9 @@ title: Publications
 
 - [Cygent: A cybersecurity conversational agent with log summarization powered by gpt-3](https://ieeexplore.ieee.org/abstract/document/10574658)<br>Prasasthy Balasubramanian, **Justin Seby**, Panos Kostakos**~**<br> <em>2024 3rd International Conference on Artificial Intelligence For Internet of Things (AIIoT).</em>
 
-- [Semantic-Driven Focused Crawling Using LASER and FAISS: A Novel Approach for Threat Detection and Improved Information Retrieval](https://ieeexplore.ieee.org/abstract/document/10538633)<br>Prasasthy Balasubramanian,**Justin Seby**, Panos Kostakos**~**<br><em>2023 IEEE 22nd International Conference on Trust, Security and Privacy in Computing and Communications (TrustCom)<br> Exeter, UK 2023</em>
+- [Semantic-Driven Focused Crawling Using LASER and FAISS: A Novel Approach for Threat Detection and Improved Information Retrieval](https://ieeexplore.ieee.org/abstract/document/10538633)  
+  Prasasthy Balasubramanian, **Justin Seby**, Panos Kostakos**~**  
+  <em>2023 IEEE 22nd International Conference on Trust, Security and Privacy in Computing and Communications (TrustCom)<br> Exeter, UK 2023</em>
 
 ## Posters
 
