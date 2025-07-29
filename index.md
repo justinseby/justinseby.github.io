@@ -39,6 +39,7 @@ My current research focuses on developing and applying artificial intelligence m
 
 ## News and Updates
 
+- July 2025:  Presented “Network-based Analysis of Acute Myeloid Leukemia: Integrating Large Language Models for Enhanced Module Annotation” at the 33rd Intelligent Systems for Molecular Biology (ISMB 2025) Conference, ISCB, Liverpool, UK.
 - September 2024: Started PhD program in AI applications in cancer medicine at Karolinska Institute under Prof. Janne Lehtiö.
 - August 2022: Began Master's studies in Computer Science and Engineering with AI specialization at University of Oulu.
 - June 2022: Awarded the prestigious University of Oulu Scholarship (2022-2023).
