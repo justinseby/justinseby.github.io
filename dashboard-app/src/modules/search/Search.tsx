@@ -67,7 +67,7 @@ export function SearchView({ route }: { route: Route }) {
   const { hits, error } = useSearch(q);
   return (
     <section>
-      <PageHeader title="Search" subtitle="Projects, tasks, papers, notes, meetings and deadlines." />
+      <PageHeader section="search" title="Search" subtitle="Projects, tasks, papers, notes, meetings and deadlines." />
       <div className="filters"><SearchBox value={q} onChange={(v) => setQuery("q", v)} placeholder="Search everything" /></div>
       <ErrorText error={error} />
       <div className="card list-card">

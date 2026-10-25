@@ -36,6 +36,7 @@ export function DeadlinesView({ route }: { route: Route }) {
   return (
     <section>
       <PageHeader
+        section="deadlines"
         title="Deadlines & milestones"
         subtitle="Conferences, submissions, courses, ISP, half-time review and everything with a date."
         actions={<button className="primary" onClick={() => setAdding("")}><Plus size={16} /> Deadline</button>}
@@ -95,7 +96,7 @@ function Calendar({ month, deadlines, meetings, onAdd }: { month: string; deadli
           );
         })}
       </div>
-      <p className="small muted calendar-legend">Click a day number to add a deadline. Meetings are shown in grey.</p>
+      <p className="small muted calendar-legend">Click a day number to add a deadline. Meetings are shown in pink.</p>
     </div>
   );
 }

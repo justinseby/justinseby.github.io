@@ -50,6 +50,7 @@ export function MeetingsView({ route }: { route: Route }) {
   return (
     <section>
       <PageHeader
+        section="meetings"
         title="Meetings"
         subtitle="Supervisor and lab meetings, discussions and collaborations — any date, any time."
         actions={

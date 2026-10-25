@@ -1,3 +1,4 @@
+import { SECTIONS } from "../../lib/sections.ts";
 import { CalendarDays } from "lucide-react";
 import { fmtDateTime } from "../../lib/dates.ts";
 import { href } from "../../lib/route.ts";
@@ -11,7 +12,7 @@ export function MeetingRows({ meetings, empty = "No meetings.", selected, onTogg
   selected?: Set<string>;
   onToggle?: (id: string) => void;
 }) {
-  if (!meetings.length) return <Empty>{empty}</Empty>;
+  if (!meetings.length) return <Empty icon={SECTIONS.meetings.icon}>{empty}</Empty>;
   const now = new Date().toISOString();
   return (
     <ul className="meeting-list">

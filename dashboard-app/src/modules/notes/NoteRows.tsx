@@ -1,3 +1,4 @@
+import { SECTIONS } from "../../lib/sections.ts";
 import { Pin } from "lucide-react";
 import { fmtDate } from "../../lib/dates.ts";
 import { href } from "../../lib/route.ts";
@@ -16,7 +17,7 @@ export function noteExcerpt(body: string, len = 140): string {
 }
 
 export function NoteRows({ notes, empty = "No notes." }: { notes: Note[]; empty?: string }) {
-  if (!notes.length) return <Empty>{empty}</Empty>;
+  if (!notes.length) return <Empty icon={SECTIONS.notes.icon}>{empty}</Empty>;
   return (
     <ul className="note-list">
       {notes.map((n) => (

@@ -1,6 +1,7 @@
 import { Fragment, useMemo, useState } from "react";
 import { supabase } from "../../lib/supabase.ts";
 import { Modal } from "../../components/Modal.tsx";
+import { PageHeader } from "../../components/ui.tsx";
 import { balancesByContact, formatMoney, loanStatus, paidCents, remaining, todayISO, totalsByCurrency, type Loan, type LoanStatus } from "./balance.ts";
 import { useLoans } from "./useLoans.ts";
 import { LoanForm } from "./LoanForm.tsx";
@@ -47,13 +48,12 @@ export function LoansView() {
 
   return (
     <section>
-      <header className="page-head">
-        <div>
-          <h1>Loans</h1>
-          <p className="muted">Money you’ve lent and borrowed, and what’s still outstanding.</p>
-        </div>
-        <button className="primary" onClick={() => setAdding(true)}>+ New loan</button>
-      </header>
+      <PageHeader
+        section="loans"
+        title="Loans"
+        subtitle="Money you’ve lent and borrowed, and what’s still outstanding."
+        actions={<button className="primary" onClick={() => setAdding(true)}>+ New loan</button>}
+      />
       {error && <p className="error">{error}</p>}
 
       <div className="stats">

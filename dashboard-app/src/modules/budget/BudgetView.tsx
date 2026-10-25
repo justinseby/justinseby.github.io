@@ -78,6 +78,7 @@ export function BudgetView({ route }: { route: Route }) {
   return (
     <section>
       <PageHeader
+        section="budget"
         title="Budget"
         subtitle="Income, expenses and transfers, with monthly budgets per category."
         actions={
