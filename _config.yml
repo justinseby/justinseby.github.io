@@ -40,6 +40,8 @@ kramdown:
 exclude:
   - README.md
   - LICENSE
+  - dashboard-app/
+  - supabase/
 
 plugins:
   - jekyll-feed
