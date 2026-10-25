@@ -1,0 +1,47 @@
+title: Justin Seby
+url: https://justinseby.github.io
+
+owner:
+  name: Justin Seby
+  avatar: avatar.jpg
+  email: justinseby891@gmail.com
+  cv: /file/CV_Justin_Seby.pdf
+  github: justinseby
+  linkedin: justinseby
+  scholar: https://scholar.google.com/citations?user=mxMVQXgAAAAJ&hl=en
+
+# Google Search Console verification (replace with your own token, or delete)
+google_verify: "rOCI2_CNjioCYk9Ki6OnIm5MIotlfKrME48t7qIo9Iw"
+# Google Analytics 4 measurement ID, e.g. "G-XXXXXXXXXX" (leave empty to disable)
+google_analytics: ""
+
+links:
+  - title: About Me
+    url: /
+  - title: Publications
+    url: /publications/
+  - title: Education
+    url: /education/
+  - title: Work Experience
+    url: /work/
+  - title: Blogs
+    url: /blogs/
+
+timezone: Europe/Stockholm
+permalink: /:categories/:title
+highlighter: rouge
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+
+exclude:
+  - README.md
+  - LICENSE
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag

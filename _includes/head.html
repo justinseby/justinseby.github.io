@@ -1,0 +1,30 @@
+<meta charset="utf-8">
+<title>{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}</title>
+{% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}">
+<meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ page.content | strip_html | strip_newlines | truncate: 120 }}{% endif %}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:site_name" content="{{ site.title }}">
+{% if site.google_verify %}<meta name="google-site-verification" content="{{ site.google_verify }}">{% endif %}
+
+{% capture canonical %}{{ site.url }}{{ page.url | remove:'index.html' }}{% endcapture %}
+<link rel="canonical" href="{{ canonical }}">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous" />
+<link rel="stylesheet" href="{{ site.url }}/assets/css/main.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" integrity="sha512-3n19xznO0ubPpSwYCRRBgHh63DrV+bdZfHK52b1esvId4GsfwStQNPJFjeQos2h3JwCmZl0/LgLxSKMAI55hgw==" crossorigin="anonymous"></script>
+
+{% if site.google_analytics != "" %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ site.google_analytics }}');
+</script>
+{% endif %}
