@@ -18,7 +18,8 @@ export function LoansView() {
   const today = todayISO();
 
   const totals = useMemo(() => totalsByCurrency(loans, payments), [loans, payments]);
-  const people = useMemo(() => balancesByContact(contacts, loans, payments, today), [contacts, loans, payments, today]);
+  // contacts is shared with meetings, so list only people you have loans with
+  const people = useMemo(() => balancesByContact(contacts.filter((c) => loans.some((l) => l.contact_id === c.id)), loans, payments, today), [contacts, loans, payments, today]);
   const nameOf = (id: string) => contacts.find((c) => c.id === id)?.name ?? "—";
 
   const rows = loans

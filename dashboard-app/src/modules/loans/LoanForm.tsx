@@ -1,8 +1,9 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { supabase } from "../../lib/supabase.ts";
 import { todayISO, type Contact, type Direction } from "./balance.ts";
 
-export const CURRENCIES = ["SEK", "INR", "EUR", "USD"];
+import { useSettings } from "../../lib/settings.ts";
+import { CURRENCIES } from "../../lib/types.ts";
 const NEW = "__new__";
 
 export function LoanForm({ contacts, defaultContactId, onDone }: { contacts: Contact[]; defaultContactId?: string; onDone: () => void }) {
@@ -10,7 +11,9 @@ export function LoanForm({ contacts, defaultContactId, onDone }: { contacts: Con
   const [newName, setNewName] = useState("");
   const [direction, setDirection] = useState<Direction>("lent");
   const [amount, setAmount] = useState("");
-  const [currency, setCurrency] = useState("SEK");
+  const settings = useSettings();
+  const [currency, setCurrency] = useState(settings.default_currency);
+  useEffect(() => setCurrency(settings.default_currency), [settings.default_currency]);
   const [issuedOn, setIssuedOn] = useState(todayISO());
   const [dueOn, setDueOn] = useState("");
   const [note, setNote] = useState("");
@@ -77,7 +80,7 @@ export function LoanForm({ contacts, defaultContactId, onDone }: { contacts: Con
         <label>
           Currency
           <select value={currency} onChange={(e) => setCurrency(e.target.value)}>
-            {CURRENCIES.map((c) => <option key={c}>{c}</option>)}
+            {[...new Set([currency, ...CURRENCIES])].map((c) => <option key={c}>{c}</option>)}
           </select>
         </label>
       </div>

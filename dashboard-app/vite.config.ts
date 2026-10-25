@@ -5,4 +5,16 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   base: "/dashboard/",
   plugins: [react()],
+  build: {
+    rollupOptions: {
+      output: {
+        // Libraries change rarely; separate files stay cached between deploys.
+        manualChunks: {
+          react: ["react", "react-dom"],
+          supabase: ["@supabase/supabase-js"],
+          markdown: ["react-markdown", "remark-gfm"],
+        },
+      },
+    },
+  },
 });
