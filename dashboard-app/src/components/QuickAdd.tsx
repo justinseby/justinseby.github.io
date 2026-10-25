@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { CalendarClock, CheckSquare, FileText, FolderPlus, NotebookPen, Receipt, Repeat, Users } from "lucide-react";
 import { list, useLoad } from "../lib/db.ts";
+import type { SectionId } from "../lib/sections.ts";
 import { useSettings } from "../lib/settings.ts";
 import type { BudgetCategory } from "../lib/types.ts";
 import { TransactionForm } from "../modules/budget/TransactionForm.tsx";
@@ -16,15 +17,15 @@ import { Modal } from "./Modal.tsx";
 
 export type QuickKind = "project" | "task" | "paper" | "note" | "meeting" | "deadline" | "expense" | "habit";
 
-export const QUICK_ACTIONS: { kind: QuickKind; label: string; icon: typeof CheckSquare }[] = [
-  { kind: "task", label: "Task", icon: CheckSquare },
-  { kind: "project", label: "Project", icon: FolderPlus },
-  { kind: "paper", label: "Paper", icon: FileText },
-  { kind: "note", label: "Note", icon: NotebookPen },
-  { kind: "meeting", label: "Meeting", icon: Users },
-  { kind: "deadline", label: "Deadline", icon: CalendarClock },
-  { kind: "expense", label: "Expense", icon: Receipt },
-  { kind: "habit", label: "Habit check-in", icon: Repeat },
+export const QUICK_ACTIONS: { kind: QuickKind; label: string; icon: typeof CheckSquare; section: SectionId }[] = [
+  { kind: "task", label: "Task", icon: CheckSquare, section: "tasks" },
+  { kind: "project", label: "Project", icon: FolderPlus, section: "projects" },
+  { kind: "paper", label: "Paper", icon: FileText, section: "papers" },
+  { kind: "note", label: "Note", icon: NotebookPen, section: "notes" },
+  { kind: "meeting", label: "Meeting", icon: Users, section: "meetings" },
+  { kind: "deadline", label: "Deadline", icon: CalendarClock, section: "deadlines" },
+  { kind: "expense", label: "Expense", icon: Receipt, section: "budget" },
+  { kind: "habit", label: "Habit check-in", icon: Repeat, section: "habits" },
 ];
 
 export function openQuick(kind: QuickKind) {

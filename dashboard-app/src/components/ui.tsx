@@ -1,14 +1,19 @@
 import { useEffect, useState, type ReactNode } from "react";
-import { Check, CloudOff, Loader2, Search } from "lucide-react";
+import { Check, CloudOff, Loader2, Search, type LucideIcon } from "lucide-react";
+import { SECTIONS, type SectionId } from "../lib/sections.ts";
 import type { SaveStatus } from "../lib/useAutosave.ts";
 
-export function PageHeader({ title, subtitle, kicker, actions }: { title: ReactNode; subtitle?: ReactNode; kicker?: ReactNode; actions?: ReactNode }) {
+export function PageHeader({ title, subtitle, kicker, actions, section }: { title: ReactNode; subtitle?: ReactNode; kicker?: ReactNode; actions?: ReactNode; section?: SectionId }) {
+  const Icon = section ? SECTIONS[section].icon : null;
   return (
     <header className="page-head">
       <div className="page-head-text">
-        {kicker && <div className="kicker">{kicker}</div>}
-        <h1>{title}</h1>
-        {subtitle && <p className="muted">{subtitle}</p>}
+        {Icon && <span className="sec-chip lg" aria-hidden><Icon size={22} /></span>}
+        <div>
+          {kicker && <div className="kicker">{kicker}</div>}
+          <h1>{title}</h1>
+          {subtitle && <p className="muted">{subtitle}</p>}
+        </div>
       </div>
       {actions && <div className="page-actions">{actions}</div>}
     </header>
@@ -28,8 +33,15 @@ export function Tabs<T extends string>({ value, options, onChange, counts }: { v
   );
 }
 
-export function Empty({ children }: { children: ReactNode }) {
-  return <div className="empty muted">{children}</div>;
+/** Empty state: an icon in the section colour, one line, and an optional action. */
+export function Empty({ children, icon: Icon, action }: { children: ReactNode; icon?: LucideIcon; action?: ReactNode }) {
+  return (
+    <div className="empty">
+      {Icon && <span className="empty-icon" aria-hidden><Icon size={20} /></span>}
+      <div>{children}</div>
+      {action && <div className="empty-action">{action}</div>}
+    </div>
+  );
 }
 
 export function Badge({ children, tone }: { children: ReactNode; tone?: string }) {

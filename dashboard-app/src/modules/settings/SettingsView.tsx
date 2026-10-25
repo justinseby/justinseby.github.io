@@ -87,7 +87,7 @@ export function SettingsView() {
 
   return (
     <section>
-      <PageHeader title="Settings" subtitle="Preferences, exports and backups." />
+      <PageHeader section="settings" title="Settings" subtitle="Preferences, exports and backups." />
       <div className="detail-grid">
         <div className="detail-main">
           <div className="card pad">

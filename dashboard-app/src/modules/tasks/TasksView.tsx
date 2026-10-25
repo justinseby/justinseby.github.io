@@ -40,6 +40,7 @@ export function TasksView({ route }: { route: Route }) {
   return (
     <section>
       <PageHeader
+        section="tasks"
         title="Tasks"
         subtitle="Everything you need to do, across all projects."
         actions={<button className="primary" onClick={() => setAdding(true)}><Plus size={16} /> Task</button>}

@@ -1,8 +1,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 import type { Session } from "@supabase/supabase-js";
-import {
-  CalendarClock, CheckSquare, FileText, Folder, HandCoins, Home, LogOut, Menu, NotebookPen, Repeat, Search, Settings, Users, Wallet, X,
-} from "lucide-react";
+import { LogOut, Menu, Search, Settings as Settings2, X } from "lucide-react";
+import { SECTIONS, toneStyle, type SectionId } from "./lib/sections.ts";
 import { supabase } from "./lib/supabase.ts";
 import { useRoute, type Route } from "./lib/route.ts";
 import { Login } from "./components/Login.tsx";
@@ -27,27 +26,10 @@ import { SettingsView } from "./modules/settings/SettingsView.tsx";
 import { TasksView } from "./modules/tasks/TasksView.tsx";
 
 // Navigation, grouped. Each id is the first part of the route (#/<id>/…).
-const NAV: { group?: string; items: { id: string; label: string; icon: typeof Home }[] }[] = [
-  { items: [{ id: "home", label: "Dashboard", icon: Home }] },
-  {
-    group: "Research",
-    items: [
-      { id: "projects", label: "Projects", icon: Folder },
-      { id: "tasks", label: "Tasks", icon: CheckSquare },
-      { id: "papers", label: "Papers", icon: FileText },
-      { id: "notes", label: "Notes", icon: NotebookPen },
-      { id: "meetings", label: "Meetings", icon: Users },
-      { id: "deadlines", label: "Deadlines", icon: CalendarClock },
-    ],
-  },
-  {
-    group: "Personal",
-    items: [
-      { id: "budget", label: "Budget", icon: Wallet },
-      { id: "loans", label: "Loans", icon: HandCoins },
-      { id: "habits", label: "Habits", icon: Repeat },
-    ],
-  },
+const NAV: { group?: string; items: SectionId[] }[] = [
+  { items: ["home"] },
+  { group: "Research", items: ["projects", "tasks", "papers", "notes", "meetings", "deadlines"] },
+  { group: "Personal", items: ["budget", "loans", "habits"] },
 ];
 
 function Page({ route }: { route: Route }) {
@@ -126,43 +108,46 @@ export function App() {
   }
 
   const section = route.path[0];
+  const sectionId: SectionId = section in SECTIONS ? (section as SectionId) : "home";
   return (
     <div className="shell">
       <header className="topbar">
         <button className="icon" aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
-        <span className="brand">Workspace</span>
+        <span className="brand"><span className="brand-mark" aria-hidden>J</span> Workspace</span>
         <button className="icon" aria-label="Search" onClick={() => window.dispatchEvent(new Event("ws:search"))}><Search size={19} /></button>
       </header>
       <nav className={`sidebar ${menuOpen ? "open" : ""}`} aria-label="Main">
-        <div className="brand">Justin’s workspace</div>
+        <div className="brand"><span className="brand-mark" aria-hidden>J</span> Justin’s workspace</div>
         <button className="search-trigger" onClick={() => window.dispatchEvent(new Event("ws:search"))}>
           <Search size={15} /> Search <kbd>⌘K</kbd>
         </button>
         {NAV.map((g, i) => (
           <div className="nav-group" key={i}>
             {g.group && <div className="nav-group-label">{g.group}</div>}
-            {g.items.map((m) => {
-              const Icon = m.icon;
-              const active = m.id === section || (m.id === "home" && !NAV.some((x) => x.items.some((y) => y.id === section)) && !["search", "settings"].includes(section));
+            {g.items.map((id) => {
+              const { label, icon: Icon } = SECTIONS[id];
+              const active = id === sectionId;
               return (
-                <a key={m.id} href={`#/${m.id}`} className={active ? "active" : ""} aria-current={active ? "page" : undefined}>
-                  <Icon size={16} className="nav-icon" aria-hidden />
-                  {m.label}
+                <a key={id} href={`#/${id}`} className={active ? "active" : ""} aria-current={active ? "page" : undefined} style={toneStyle(id)}>
+                  <span className="sec-chip" aria-hidden><Icon size={16} /></span>
+                  {label}
                 </a>
               );
             })}
           </div>
         ))}
         <div className="sidebar-foot">
-          <a href="#/settings" className={section === "settings" ? "active" : ""}><Settings size={15} className="nav-icon" /> Settings</a>
+          <a href="#/settings" className={section === "settings" ? "active" : ""} style={toneStyle("settings")}>
+            <span className="sec-chip" aria-hidden><Settings2 size={16} /></span> Settings
+          </a>
           <a href="https://justinseby.github.io/">Public site ↗</a>
           <button className="link" onClick={() => supabase!.auth.signOut()}><LogOut size={14} /> Sign out</button>
         </div>
       </nav>
       {menuOpen && <div className="scrim" onClick={() => setMenuOpen(false)} />}
-      <main className="content">
+      <main className="content" key={sectionId} style={toneStyle(sectionId)}>
         <Page route={route} />
       </main>
       <QuickAddHost />

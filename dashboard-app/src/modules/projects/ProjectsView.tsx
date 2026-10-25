@@ -8,6 +8,7 @@ import { Modal } from "../../components/Modal.tsx";
 import { TagList, useAllTags } from "../../components/TagInput.tsx";
 import { Badge, Empty, ErrorText, PageHeader, SearchBox, Select } from "../../components/ui.tsx";
 import { isOpen } from "../tasks/logic.ts";
+import { noteExcerpt } from "../notes/NoteRows.tsx";
 import { ProjectForm } from "./ProjectForm.tsx";
 
 type StatusFilter = "current" | ProjectStatus | "all";
@@ -47,6 +48,7 @@ export function ProjectsView({ route }: { route: Route }) {
   return (
     <section>
       <PageHeader
+        section="projects"
         title="Projects"
         subtitle="The hub for your research and everything else."
         actions={<button className="primary" onClick={() => setAdding(true)}><Plus size={16} /> Project</button>}
@@ -80,7 +82,7 @@ export function ProjectsView({ route }: { route: Route }) {
                   {p.pinned && <Pin size={13} className="muted" aria-label="Pinned" />}
                 </div>
                 <h3>{p.title}</h3>
-                {p.description && <p className="muted small clamp">{p.description}</p>}
+                {p.description && <p className="muted small clamp">{noteExcerpt(p.description, 200)}</p>}
                 <div className="project-card-meta">
                   <span><CheckSquare size={13} /> {open.length} open{overdue ? <span className="neg"> · {overdue} overdue</span> : null}</span>
                   <span><FileText size={13} /> {papers} papers</span>

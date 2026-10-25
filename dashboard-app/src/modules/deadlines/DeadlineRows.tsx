@@ -1,7 +1,8 @@
+import { SECTIONS } from "../../lib/sections.ts";
 import { CalendarClock } from "lucide-react";
 import { fmtDate, relDay, today } from "../../lib/dates.ts";
 import { href } from "../../lib/route.ts";
-import { DEADLINE_CATEGORY, DEADLINE_STATUS, type Deadline } from "../../lib/types.ts";
+import { DEADLINE_CATEGORY, DEADLINE_STATUS, PRIORITY, type Deadline } from "../../lib/types.ts";
 import { TagList } from "../../components/TagInput.tsx";
 import { Badge, Empty, priorityTone } from "../../components/ui.tsx";
 
@@ -16,7 +17,7 @@ export function deadlineTone(d: Deadline, now = today()): string {
 
 export function DeadlineRows({ deadlines, empty = "No deadlines." }: { deadlines: Deadline[]; empty?: string }) {
   const now = today();
-  if (!deadlines.length) return <Empty>{empty}</Empty>;
+  if (!deadlines.length) return <Empty icon={SECTIONS.deadlines.icon}>{empty}</Empty>;
   return (
     <ul className="deadline-list">
       {deadlines.map((d) => {
@@ -37,7 +38,7 @@ export function DeadlineRows({ deadlines, empty = "No deadlines." }: { deadlines
                   ) : (
                     <Badge tone={deadlineTone(d, now)}>{DEADLINE_STATUS[d.status]}</Badge>
                   )}
-                  {d.priority !== "medium" && <Badge tone={priorityTone(d.priority)}>{d.priority}</Badge>}
+                  {d.priority !== "medium" && <Badge tone={priorityTone(d.priority)}>{PRIORITY[d.priority]}</Badge>}
                   <TagList tags={d.tags} />
                 </span>
               </span>

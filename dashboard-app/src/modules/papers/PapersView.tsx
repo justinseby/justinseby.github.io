@@ -50,6 +50,7 @@ export function PapersView({ route }: { route: Route }) {
   return (
     <section>
       <PageHeader
+        section="papers"
         title="Papers"
         subtitle="Your reading library. Each paper is stored once and can be linked to any number of projects."
         actions={<button className="primary" onClick={() => setAdding(true)}><Plus size={16} /> Paper</button>}

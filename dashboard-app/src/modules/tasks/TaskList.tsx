@@ -1,3 +1,4 @@
+import { SECTIONS } from "../../lib/sections.ts";
 import { useState } from "react";
 import { CalendarClock, Flag, Repeat, Users } from "lucide-react";
 import { update } from "../../lib/db.ts";
@@ -23,7 +24,7 @@ export function TaskList({ tasks, projects, showProject = true, empty = "No task
     }
   }
 
-  if (!tasks.length) return <Empty>{empty}</Empty>;
+  if (!tasks.length) return <Empty icon={SECTIONS.tasks.icon}>{empty}</Empty>;
   return (
     <>
       {error && <p className="error">{error}</p>}

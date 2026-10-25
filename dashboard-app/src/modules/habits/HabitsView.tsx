@@ -65,7 +65,7 @@ export function HabitsView() {
 
   return (
     <section>
-      <PageHeader title="Habits" subtitle="Small things, done regularly." actions={<button className="primary" onClick={() => setEditing("new")}><Plus size={16} /> Habit</button>} />
+      <PageHeader section="habits" title="Habits" subtitle="Small things, done regularly." actions={<button className="primary" onClick={() => setEditing("new")}><Plus size={16} /> Habit</button>} />
       <ErrorText error={error} />
       <div className="detail-grid">
         <div className="detail-main">

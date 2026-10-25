@@ -127,7 +127,7 @@ function PaperDetail({ paper, links, notes }: { paper: Paper; links: ProjectPape
             </details>
           )}
 
-          <div className="card pad">
+          <div className="card pad notebook">
             <h2 className="section-title">Reading notes</h2>
             <div className="reading-notes">
               {NOTE_FIELDS.map(([k, label, hint]) => (

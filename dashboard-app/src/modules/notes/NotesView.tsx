@@ -35,6 +35,7 @@ export function NotesView({ route }: { route: Route }) {
   return (
     <section>
       <PageHeader
+        section="notes"
         title="Notes"
         subtitle="Ideas, literature notes, daily logs and your lab notebook."
         actions={
