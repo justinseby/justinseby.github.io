@@ -121,6 +121,9 @@ A PDF is a readable copy, never the backup.
 
 ## Build order
 
+All steps below are built.
+
+
 | Step | Scope |
 | --- | --- |
 | 1–3 | Inspect, data model, auth + RLS + storage (this document, `supabase/migrations/`) |

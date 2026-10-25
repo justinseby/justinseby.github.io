@@ -29,6 +29,21 @@ Then open http://localhost:4000
 A private, single-owner workspace (projects, tasks, papers, notes, meetings, deadlines, budget,
 habits, loans) lives in `dashboard-app/` and is published at https://justinseby.github.io/dashboard/.
 Design, data model, security and backup approach: [docs/workspace-design.md](docs/workspace-design.md).
+Backups: [docs/backup-restore.md](docs/backup-restore.md).
+
+What's inside:
+
+- **Dashboard:** today's and overdue tasks, upcoming deadlines and meetings, today's habits, active projects, papers being read, recent notes, money summary, and quick-add buttons.
+- **Projects:** the hub. Each project page has tabs for its tasks, papers, notes, meetings, deadlines and files, plus a PDF summary.
+- **Tasks:** Today / Inbox / Upcoming / Overdue / All / By project / Completed views, plus recurring tasks.
+- **Papers:** add by DOI, arXiv or PubMed id (details filled in automatically), structured reading notes with autosave, page references, PDF upload, and links to several projects.
+- **Notes:** markdown with checklists, tables and code; autosave; types; export as `.md`.
+- **Meetings:** free date and time, agenda / discussion / decisions / next steps, and action items that turn into tasks. Export one or several meetings to PDF.
+- **Deadlines:** categories (ISP, half-time review, conferences…), preparation tasks, and a calendar.
+- **Budget:** income, expenses and transfers, custom categories, monthly budgets vs actual.
+- **Loans:** money lent and borrowed, repayments, and balances per person.
+- **Habits:** daily or chosen weekdays, streaks, a weekly grid and 12-week history.
+- **Search** across everything (⌘K / Ctrl+K), shared tags, private file storage, and a full backup and restore in Settings.
 
 | Path | What it is |
 | --- | --- |
