@@ -98,6 +98,98 @@ export function balancesByContact(contacts: Contact[], loans: Loan[], payments: 
     .sort((a, b) => b.openLoans - a.openLoans || a.contact.name.localeCompare(b.contact.name));
 }
 
+export interface Progress {
+  /** Everything borrowed (or lent), including loans already settled. */
+  total: number;
+  paid: number;
+  left: number;
+}
+
+const emptyProgress = (): Progress => ({ total: 0, paid: 0, left: 0 });
+
+function addLoan(p: Progress, loan: Loan, payments: Payment[]) {
+  const paid = Math.min(cents(loan.amount), paidCents(loan, payments));
+  p.total += cents(loan.amount);
+  p.paid += paid;
+  p.left += cents(loan.amount) - paid;
+}
+
+const toUnits = (p: Progress): Progress => ({ total: p.total / 100, paid: p.paid / 100, left: p.left / 100 });
+
+/** Most-used currencies first (the order of CURRENCIES), then the rest alphabetically. */
+export function sortCurrencies(currencies: string[], preferred: string[]): string[] {
+  const rank = (c: string) => (preferred.includes(c) ? preferred.indexOf(c) : preferred.length);
+  return [...new Set(currencies)].sort((a, b) => rank(a) - rank(b) || a.localeCompare(b));
+}
+
+export interface CurrencySummary {
+  borrowed: Progress;
+  lent: Progress;
+}
+
+/** Per currency: how much was borrowed and lent, how much of it is paid back, and what is left. */
+export function summaryByCurrency(loans: Loan[], payments: Payment[]): Record<string, CurrencySummary> {
+  const acc: Record<string, CurrencySummary> = {};
+  for (const loan of loans) {
+    const s = (acc[loan.currency] ??= { borrowed: emptyProgress(), lent: emptyProgress() });
+    addLoan(s[loan.direction === "borrowed" ? "borrowed" : "lent"], loan, payments);
+  }
+  return Object.fromEntries(Object.entries(acc).map(([c, s]) => [c, { borrowed: toUnits(s.borrowed), lent: toUnits(s.lent) }]));
+}
+
+export interface PersonRow extends Progress {
+  key: string;
+  contact: Contact;
+  direction: Direction;
+  currency: string;
+  /** Loans in this row that still have money outstanding, oldest first. */
+  open: Loan[];
+  overdue: number;
+}
+
+/** One row per person, direction and currency, with the rows that still have money left first. */
+export function rowsByPerson(contacts: Contact[], loans: Loan[], payments: Payment[], today: string): PersonRow[] {
+  const rows = new Map<string, PersonRow>();
+  for (const loan of loans) {
+    const contact = contacts.find((c) => c.id === loan.contact_id);
+    if (!contact) continue;
+    const key = `${loan.contact_id}|${loan.direction}|${loan.currency}`;
+    let row = rows.get(key);
+    if (!row) {
+      row = { key, contact, direction: loan.direction, currency: loan.currency, ...emptyProgress(), open: [], overdue: 0 };
+      rows.set(key, row);
+    }
+    addLoan(row, loan, payments);
+    const status = loanStatus(loan, payments, today);
+    if (status !== "settled") row.open.push(loan);
+    if (status === "overdue") row.overdue += 1;
+  }
+  return [...rows.values()]
+    .map((r) => ({ ...r, ...toUnits(r), open: oldestFirst(r.open) }))
+    .sort((a, b) => Number(b.left > 0) - Number(a.left > 0) || a.contact.name.localeCompare(b.contact.name) || a.currency.localeCompare(b.currency));
+}
+
+function oldestFirst(loans: Loan[]): Loan[] {
+  return [...loans].sort((a, b) => (a.due_on ?? "9999").localeCompare(b.due_on ?? "9999") || a.issued_on.localeCompare(b.issued_on) || a.id.localeCompare(b.id));
+}
+
+/**
+ * Splits one repayment across several loans, earliest due (then oldest) first,
+ * never paying a loan more than what is left on it. Anything above the total left is dropped.
+ */
+export function allocate(loans: Loan[], payments: Payment[], amount: number): { loan_id: string; amount: number }[] {
+  let rest = cents(amount);
+  const out: { loan_id: string; amount: number }[] = [];
+  for (const loan of oldestFirst(loans)) {
+    if (rest <= 0) break;
+    const take = Math.min(rest, cents(remaining(loan, payments)));
+    if (take <= 0) continue;
+    out.push({ loan_id: loan.id, amount: take / 100 });
+    rest -= take;
+  }
+  return out;
+}
+
 export function formatMoney(amount: number, currency: string): string {
   return new Intl.NumberFormat("en-GB", { style: "currency", currency, maximumFractionDigits: 2 }).format(amount);
 }
